@@ -9,6 +9,7 @@
     >
 
   <TextView
+      android:id="@+id/textViewWeapon"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       android:layout_marginBottom="20dp"
@@ -18,11 +19,31 @@
       android:textSize="30dp"
       />
 
+  <ImageView
+      android:id="@+id/imageViewWeapon"
+      android:visibility="gone"
+      android:layout_width="match_parent"
+      android:layout_height="150dp"
+      android:layout_marginBottom="20dp"
+      android:layout_marginTop="20dp"
+      android:gravity="center_horizontal"
+      android:text="@string/activity_choose_weapon_title"
+      />
+
   <android.support.v7.widget.RecyclerView
       android:id="@+id/activity_choose_weapon_rcv"
       android:layout_width="match_parent"
-      android:layout_height="match_parent"
+      android:layout_height="400dp"
       tools:listitem="@layout/item_weapon"
       />
+
+  <Button
+      android:id="@+id/buttonNext"
+
+
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:text="button" />
 
 </LinearLayout>

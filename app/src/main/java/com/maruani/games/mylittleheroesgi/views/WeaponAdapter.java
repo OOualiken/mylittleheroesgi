@@ -2,6 +2,7 @@ package com.maruani.games.mylittleheroesgi.views;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,6 +42,7 @@ public class WeaponAdapter extends RecyclerView.Adapter<WeaponAdapter.WeaponView
 
     if (itemClickListener != null) {
       weaponViewHolder.itemView.setOnClickListener(v -> itemClickListener.onClick(weapon));
+
     }
   }
 
@@ -57,9 +59,12 @@ public class WeaponAdapter extends RecyclerView.Adapter<WeaponAdapter.WeaponView
       super(itemView);
       ButterKnife.bind(this, itemView);
     }
+
+
   }
 
   public interface ItemClickListener {
     void onClick(Weapon weapon);
   }
 }
+

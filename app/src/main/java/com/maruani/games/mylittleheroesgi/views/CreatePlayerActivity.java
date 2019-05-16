@@ -4,7 +4,9 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,6 +23,7 @@ public class CreatePlayerActivity extends AppCompatActivity {
   @BindView(R.id.activity_create_player_gender_gr) RadioGroup genderGr;
 
   DatePickerDialog datePickerDialog;
+
 
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -66,6 +69,17 @@ public class CreatePlayerActivity extends AppCompatActivity {
     //if OK navigate
     //if KO show error
     Intent intent = new Intent(this, ChooseWeaponActivity.class);
+    intent.putExtra("pseudo",pseudoEdt.getText().toString());
+    //On veut get le bouton sélectionné et on veut récupérer son texte pour le mettre dans l'extra.
+    RadioButton radioButton = findViewById(genderGr.getCheckedRadioButtonId());
+    Log.i("radioButton", (String) radioButton.getText());
+    intent.putExtra("gender",radioButton.getText().toString());
+    // On veut récupérer la date sous forme de String et la mettre dans l'extra pour pouvoir être récupérer ensuite.
+    Log.i("gender", (String) radioButton.getText());
+    intent.putExtra("birthsdate",birthdateEdt.getText().toString());
+
     startActivity(intent);
   }
 }
+//On check si toutes les données ont été entrés. Sinon, on affiche une pop Up d'erreur
+//Dans un premier temps, fait le sans la gestion d'erreur.
